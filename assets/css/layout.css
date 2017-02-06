@@ -1,0 +1,29 @@
+nav {
+  border-radius: 10px;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+  font-size: 0;
+}
+
+nav a {
+  padding: 35px;
+  display: block;
+  float: left;
+}
+
+nav a.navleft{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+i.heart {
+  display: inline-block;
+  vertical-align: -16.25%;
+  margin: 0 2px;
+}

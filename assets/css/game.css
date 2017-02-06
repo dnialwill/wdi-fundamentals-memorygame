@@ -1,0 +1,16 @@
+.board {
+  height: 80%;
+  width: 50%;
+  display: inline-block;
+}
+
+.card {
+  /*display: inherit;*/
+  height: 200px;
+  width: 150px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 0, 1);
+  float: left;
+  margin: 8%;
+}

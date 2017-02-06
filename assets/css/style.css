@@ -1,0 +1,61 @@
+nav{
+background-color: #808080;
+}
+
+nav a{
+  background-color: #ffbf00;
+  color: #fff;
+}
+
+nav a:hover{
+  background-color: #ee5f3c;
+}
+
+header, section#instructions, footer {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+}
+
+h1.title {
+  color: #008080;
+}
+
+h2.subtitle {
+  color: #ffd700;
+}
+
+footer {
+  background-color: #808080;
+}
+
+i.heart {
+  font-size: inherit;
+  color: #f00;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+a:visited{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a:active{
+  text-decoration: underline;
+}
+
+a.credit:link{
+  color: #f00;
+}
+
+a.credit:visited{
+  color: #ffc0cb;
+}
