@@ -1,7 +1,7 @@
 var cards = ["queen-red", "queen-black", "king-red", "king-black"]
 var cardsInPlay = []
 
-function createCards() {
+window.onload = function createCards() {
   for (var i = 0; i<cards.length; i++) {
     var cardElement = document.createElement("div");
     cardElement.className = "card back";
@@ -14,15 +14,25 @@ function createCards() {
     }
     document.querySelector("#game-board").appendChild(cardElement);
     cardElement.addEventListener("click", isTwoCards);
+    document.querySelector("#reset").addEventListener("click", resetBoard);
   }
+}
+
+function resetBoard() {
+  var nodes = document.querySelector("#game-board").childNodes;
+  for (var i=0; i<nodes.length; i++) {
+      nodes[i].className = "card back";
+  }
+  document.querySelector("#status").innerHTML = "Pick a card... any card!"
 }
 
 function isMatch() {
   if (cardsInPlay[0] === cardsInPlay[1]) {
-    alert("You found a match!");
+    document.querySelector("#status").innerHTML = "You found a match!"
   } else {
-    alert("Sorry, try again.");
+    document.querySelector("#status").innerHTML = "Sorry, try again."
   }
+  // setTimeout(resetBoard(), 3000);
 }
 
 function isTwoCards() {

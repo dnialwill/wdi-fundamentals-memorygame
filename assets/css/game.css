@@ -1,17 +1,42 @@
+.status-bar {
+  display: table;
+  margin: 40px auto;
+  padding: 10px;
+  background-color: #808080;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.status-bar p{
+  text-align: center;
+  color: #fff;
+}
+
+#reset {
+  background-color: #f00;
+  padding: 10px 40px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
 .board {
-  height: 80%;
-  width: 50%;
-  display: inline-block;
+  /*height: 80%;
+  width: 50%;*/
+  /*display: inline-block;*/
+  margin: 0 auto;
+  text-align: center;
+  /*position: relative;
+  left: 20%;*/
 }
 
 .card {
+  display: inline-block;
   height: 210px;
   width: 150px;
   border: 3px solid #172D53;
   border-radius: 10px;
   background-color: #fff;
-  float: left;
-  margin: 8%;
+  margin: 20px;
 }
 
 .back {
