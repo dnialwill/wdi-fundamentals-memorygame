@@ -1,45 +1,55 @@
-var cards = ["queen-red", "queen-black", "king-red", "king-black"]
-var cardsInPlay = []
+var cards = ["queen-red", "queen-black", "king-red", "king-black"] // Card pool
+var cardsInPlay = [] // Declare no cards in play
+var board = document.querySelector("#game-board") // Declares game-board
+var status = document.querySelector("#status") // Declares status message, should work but it doesn't???
+var reset = document.querySelector("#reset") // Declares reset button
 
-window.onload = function createCards() {
-  for (var i = 0; i<cards.length; i++) {
-    var cardElement = document.createElement("div");
-    cardElement.className = "card back";
-    cardElement.setAttribute("cardData", cards[i]);
-    if ((cards[i] === "queen-red") || (cards[i] === "queen-black")) {
+function createCards() { // Card creation
+  cardsInPlay = [] // Initialize playing field
+  document.querySelector("#status").innerHTML = "Pick a card... any card!" // Initialize status bar, replace querySelector with var when I figure it out
+  for (var i = 0; i<cards.length; i++) { // Creates cards based on cards array length
+    var cardElement = document.createElement("div"); // Makes divs for cards
+    cardElement.className = "card back"; // Assigns CSS classes for styling
+    cardElement.setAttribute("cardData", cards[i]); // Not sure if data-type totally necessary, but included here per instructions
+    if ((cards[i] === "queen-red") || (cards[i] === "queen-black")) { // Assigns face data for isMatch()
       cardElement.setAttribute ("cardFace", "queen");
     }
     else if ((cards[i] === "king-red") || (cards[i] === "king-black")) {
       cardElement.setAttribute ("cardFace", "king");
     }
-    document.querySelector("#game-board").appendChild(cardElement);
-    cardElement.addEventListener("click", isTwoCards);
-    document.querySelector("#reset").addEventListener("click", resetBoard);
+    board.appendChild(cardElement); // Adds cards to the game-board
+    cardElement.addEventListener("click", isTwoCards); // Adds event listener to "flip" cards on click
+  } reset.addEventListener("click", resetBoard); // Enables reset button
+}
+
+window.onload = createCards(); // Card creation on load
+
+function resetBoard() { // Reset the board
+  var numberOfCards = board.childNodes.length // Counts cards on board
+  for (var i=0; i<numberOfCards; i++) { // Removes cards
+      board.removeChild(board.firstChild);
+      if (document.querySelector(".card") == null) { // Creates new cards when board is clear
+        createCards();
+      }
   }
 }
 
-function resetBoard() {
-  var nodes = document.querySelector("#game-board").childNodes;
-  for (var i=0; i<nodes.length; i++) {
-      nodes[i].className = "card back";
-  }
-  document.querySelector("#status").innerHTML = "Pick a card... any card!"
-}
-
-function isMatch() {
-  if (cardsInPlay[0] === cardsInPlay[1]) {
-    document.querySelector("#status").innerHTML = "You found a match!"
+function isMatch() { // Does it match?????????????????????????
+  var cardList = board.childNodes // Makes a nodelist, dunno if I can do this in createCards()
+  if (cardsInPlay[0] === cardsInPlay[1]) { // Compares face value of played cards
+    document.querySelector("#status").innerHTML = "You found a match!" // Yay
   } else {
-    document.querySelector("#status").innerHTML = "Sorry, try again."
+    document.querySelector("#status").innerHTML = "Sorry, try again." // Boo
+  } for (var i=0; i<cardList.length; i++) { // Only two cards can be played, cheater
+    cardList[i].removeEventListener("click", isTwoCards);
   }
-  // setTimeout(resetBoard(), 3000);
 }
 
-function isTwoCards() {
-  this.className = `card ${this.getAttribute("cardData")}`;
-  cardsInPlay.push(this.getAttribute("cardFace"));
-  if (cardsInPlay.length === 2) {
+function isTwoCards() { // I should probably rename this
+  this.removeEventListener("click", isTwoCards); // Can't play the same card twice
+  this.className = `card ${this.getAttribute("cardData")}`; // Assigns CSS classes for proper image
+  cardsInPlay.push(this.getAttribute("cardFace")); // Puts the card "in play"
+  if (cardsInPlay.length === 2) { // Checks for matches when two cards are played
     isMatch(cardsInPlay);
-    cardsInPlay = [];
   }
 }
