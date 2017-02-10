@@ -22,15 +22,24 @@ function createCards() { // Card creation
   } reset.addEventListener("click", resetBoard); // Enables reset button
 }
 
+function shuffle(a) { // Shuffle function found at http://http://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+    for (let i = a.length; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+}
+
+window.onload = shuffle(cards); // Shuffles cards on load
 window.onload = createCards(); // Card creation on load
 
 function resetBoard() { // Reset the board
   var numberOfCards = board.childNodes.length // Counts cards on board
   for (var i=0; i<numberOfCards; i++) { // Removes cards
-      board.removeChild(board.firstChild);
-      if (document.querySelector(".card") == null) { // Creates new cards when board is clear
-        createCards();
-      }
+    board.removeChild(board.firstChild);
+    if (document.querySelector(".card") == null) { // Creates new cards when board is clear
+      shuffle(cards);
+      createCards();
+    }
   }
 }
 
