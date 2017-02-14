@@ -1,4 +1,4 @@
-nav {
+nav, .info, footer p{
   border-radius: 10px;
 }
 
@@ -17,9 +17,34 @@ nav a {
   float: left;
 }
 
-nav a.navleft{
+nav a.navleft {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+
+.info, footer{
+  margin: 0 auto;
+}
+
+.info {
+  width: 450px;
+  padding: 18px;
+}
+
+.info *:first-child, footer p {
+  margin-top: 0px;
+}
+
+.info *:last-child, footer p {
+  margin-bottom: 0px;
+}
+
+footer {
+  display: table;
+}
+
+footer p{
+  padding: 10px 40px;
 }
 
 i.heart {

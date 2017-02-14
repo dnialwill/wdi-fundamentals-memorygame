@@ -2,7 +2,7 @@
   display: table;
   margin: 40px auto;
   padding: 10px;
-  background-color: #808080;
+  background-color: #415A89;
   border-radius: 10px;
   margin-bottom: 25px;
 }
@@ -20,13 +20,8 @@
 }
 
 .board {
-  /*height: 80%;
-  width: 50%;*/
-  /*display: inline-block;*/
   margin: 0 auto;
   text-align: center;
-  /*position: relative;
-  left: 20%;*/
 }
 
 .card {
@@ -45,16 +40,24 @@
 
 .queen-red {
   background: url('../img/queen-red.png') no-repeat center center;
+  /*content: "Queen";
+  color: #DA0003;*/
 }
 
 .queen-black {
   background: url('../img/queen-black.png') no-repeat center center;
+  /*content: "Queen";
+  color: #000;*/
 }
 
 .king-red {
   background: url('../img/king-red.png') no-repeat center center;
+  /*content: "King";
+  color: #DA0003;*/
 }
 
 .king-black {
   background: url('../img/king-black.png') no-repeat center center;
+  /*content: "King";
+  color: #000;*/
 }

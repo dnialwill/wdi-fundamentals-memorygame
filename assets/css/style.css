@@ -1,14 +1,14 @@
-nav{
-background-color: #808080;
+nav, .info {
+background-color: #DAE3F1;
 }
 
-nav a{
-  background-color: #ffbf00;
+nav a, .info {
+  color: #415A89;
+}
+
+nav a:hover, footer p{
+  background-color: #415A89;
   color: #fff;
-}
-
-nav a:hover{
-  background-color: #ee5f3c;
 }
 
 header, section#instructions, footer {
@@ -20,42 +20,45 @@ h1, h2, h3 {
 }
 
 h1.title {
-  color: #008080;
+  color: #415A89;
 }
 
 h2.subtitle {
-  color: #ffd700;
-}
-
-footer {
-  background-color: #808080;
+  color: #5B759D;
 }
 
 i.heart {
   font-size: inherit;
-  color: #f00;
 }
 
-a:link{
+a:link {
   text-decoration: none;
 }
 
-a:visited{
+a:visited {
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   text-decoration: underline;
 }
 
-a:active{
+a:active {
   text-decoration: underline;
 }
 
-a.credit:link{
-  color: #f00;
+footer p a {
+  font-weight: bold;
 }
 
-a.credit:visited{
-  color: #ffc0cb;
+footer p a:link {
+  color: #FFEAC4;
+}
+
+footer p a:visited {
+  color: #FFE0A8;
+}
+
+footer p a:hover {
+  color: #FFF;
 }
