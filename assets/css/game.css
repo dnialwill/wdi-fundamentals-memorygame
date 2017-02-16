@@ -101,30 +101,47 @@ button:focus {
   cursor: pointer;
 }
 
+.card span {
+  visibility: hidden;
+  display: block;
+  margin: 3px;
+  text-transform: capitalize;
+}
+
+span.visible {
+  visibility: visible;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  position: relative;
+  top: 169px;
+}
+
 .back {
   background-image: url('../img/back.png');
 }
 
+.queen-red, .king-red {
+  color: #DA0003;
+}
+
+.queen-black, .king-black {
+  color: #000;
+}
+
 .queen-red {
   background: url('../img/queen-red.png') no-repeat center center;
-  /*content: "Queen";
-  color: #DA0003;*/
 }
 
 .queen-black {
   background: url('../img/queen-black.png') no-repeat center center;
-  /*content: "Queen";
-  color: #000;*/
 }
 
 .king-red {
   background: url('../img/king-red.png') no-repeat center center;
-  /*content: "King";
-  color: #DA0003;*/
 }
 
 .king-black {
   background: url('../img/king-black.png') no-repeat center center;
-  /*content: "King";
-  color: #000;*/
 }

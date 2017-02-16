@@ -18,6 +18,12 @@ function createCards() { // Card creation
     else if ((cards[i] === "king-red") || (cards[i] === "king-black")) {
       cardElement.setAttribute ("cardFace", "king");
     }
+    var titleElement = document.createElement("span"); // Creates spans for card title
+    var titleFlipElement = document.createElement("span");
+    titleElement.innerHTML = `${cardElement.getAttribute("cardFace")}`; // Gives spans correct title
+    titleFlipElement.innerHTML = `${cardElement.getAttribute("cardFace")}`;
+    cardElement.appendChild(titleElement); // Adds spans to cards
+    cardElement.appendChild(titleFlipElement);
     board.appendChild(cardElement); // Adds cards to the game-board
     if (i === cards.length/2) { // Makes layout square
       var clear = document.createElement("br"); // by adding line break
@@ -52,8 +58,8 @@ function isMatch() { // Does it match?????????????????????????
   var cardList = board.childNodes; // Makes a nodelist, dunno if I can do this in createCards()
   if (cardsInPlay[0] === cardsInPlay[1]) { // Compares face value of played cards
     document.querySelector("#status").innerHTML = "You found a match!"; // Yay
-    score++;
-    document.querySelector("#score").innerHTML = `${score}`
+    score++; // Adds to score
+    document.querySelector("#score").innerHTML = `${score}`// Displays score
   } else {
     document.querySelector("#status").innerHTML = "Sorry, try again."; // Boo
   } for (var i=0; i<cardList.length; i++) { // Only two cards can be played, cheater
@@ -64,6 +70,8 @@ function isMatch() { // Does it match?????????????????????????
 function isTwoCards() { // I should probably rename this
   this.removeEventListener("click", isTwoCards); // Can't play the same card twice
   this.className = `card ${this.getAttribute("cardData")}`; // Assigns CSS classes for proper image
+  this.childNodes[0].classList.add("visible");
+  this.childNodes[1].classList.add("visible", "rotate");
   cardsInPlay.push(this.getAttribute("cardFace")); // Puts the card "in play"
   if (cardsInPlay.length === 2) { // Checks for matches when two cards are played
     isMatch(cardsInPlay);
