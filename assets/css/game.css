@@ -170,11 +170,6 @@ button:focus {
 
 span.visible {
   visibility: visible;
-  -webkit-animation: fadein .7s;
-  -moz-animation: fadein .7s;
-  -ms-animation: fadein .7s;
-  -o-animation: fadein .7s;
-  animation: fadein .7s;
 }
 
 .rotate {
@@ -186,6 +181,17 @@ span.visible {
 .back {
   background-image: url('../img/back.png');
   cursor: pointer;
+}
+
+span.fade {
+  -webkit-animation: fadein .7s;
+  -moz-animation: fadein .7s;
+  -ms-animation: fadein .7s;
+  -o-animation: fadein .7s;
+  animation: fadein .7s;
+}
+
+div.fade {
   -webkit-animation: fadein 1.25s;
   -moz-animation: fadein 1.25s;
   -ms-animation: fadein 1.25s;
@@ -222,20 +228,30 @@ span.visible {
   box-shadow: 2px 3px 10px #999;
 }
 
-.back:hover, .back:active {
+.floating:hover, .floating:active {
+  -webkit-animation: floatingx 1.5s ease-in-out infinite;
+  -moz-animation: floating 1.5s ease-in-out infinite;
   box-shadow: 3px 4px 10px #666;
+}
+
+@-webkit-keyframes floatingx{
+    from { -webkit-transform: translate(0, 0px); }
+    50% { -webkit-transform: translate(0, -8px); }
+    to { -webkit-transform: translate(0, -0px); }
+}
+
+@-moz-keyframes floating{
+    from { -moz-transform: translate(0, 0px); }
+    50% { -moz-transform: translate(0, -8px); }
+    to { -moz-transform: translate(0, -0px); }
 }
 
 .deselect {
   cursor: default;
 }
 
-[class$="red"] {
+.queen-red, .king-red {
   color: #DA0003;
-}
-
-[class$="black"] {
-  color: #000;
 }
 
 .queen-red {

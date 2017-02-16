@@ -10,7 +10,7 @@ function createCards() { // Card creation
   document.querySelector("#status").innerHTML = "Pick a card... any card!"; // Initialize status bar, replace querySelector with var when I figure it out
   for (var i = 0; i<cards.length; i++) { // Creates cards based on cards array length
     var cardElement = document.createElement("div"); // Makes divs for cards
-    cardElement.className = "card back"; // Assigns CSS classes for styling
+    cardElement.className = "card back fade floating"; // Assigns CSS classes for styling
     cardElement.setAttribute("cardData", cards[i]); // Not sure if data-type totally necessary, but included here per instructions
     if ((cards[i] === "queen-red") || (cards[i] === "queen-black")) { // Assigns face data for isMatch()
       cardElement.setAttribute ("cardFace", "queen");
@@ -30,6 +30,7 @@ function createCards() { // Card creation
       board.insertBefore(clear, cardElement); // halfway through the loop
     }
     cardElement.addEventListener("click", isTwoCards); // Adds event listener to "flip" cards on click
+    cardElement.addEventListener("mouseover", removeFade); // Removes fade in animation
   } reset.addEventListener("click", resetBoard); // Enables reset button
 }
 
@@ -65,16 +66,22 @@ function isMatch() { // Does it match?????????????????????????
   } for (var i=0; i<cardList.length; i++) { // Only two cards can be played, cheater
     cardList[i].removeEventListener("click", isTwoCards);
     cardList[i].classList.add("deselect");
+    cardList[i].classList.remove("floating")
   }
 }
 
 function isTwoCards() { // I should probably rename this
   this.removeEventListener("click", isTwoCards); // Can't play the same card twice
   this.className = `card ${this.getAttribute("cardData")}`; // Assigns CSS classes for proper image
-  this.childNodes[0].classList.add("visible");
-  this.childNodes[1].classList.add("visible", "rotate");
+  this.childNodes[0].classList.add("visible", "fade");
+  this.childNodes[1].classList.add("visible", "rotate", "fade");
   cardsInPlay.push(this.getAttribute("cardFace")); // Puts the card "in play"
   if (cardsInPlay.length === 2) { // Checks for matches when two cards are played
     isMatch(cardsInPlay);
   }
+}
+
+function removeFade() {
+  this.removeEventListener("mouseover", removeFade);
+  this.classList.remove("fade");
 }
