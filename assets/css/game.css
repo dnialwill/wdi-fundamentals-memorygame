@@ -1,4 +1,4 @@
-.status-bar {
+.status-bar, button {
   display: table;
   margin: 40px auto;
   margin-top: 48px;
@@ -8,26 +8,81 @@
   margin-bottom: 25px;
 }
 
+.status-bar p, button, #score-field p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.status-bar p, #score-field p{
+  font-weight: 800;
+}
 
 .status-bar p {
-  text-align: center;
   color: #fff;
 }
 
 #score-field p {
-  text-align: center;
-  font-weight: 800;
   margin: 10 auto;
 }
 
-.status-bar p, #score-field p {
-  font-size: 20px;
+button {
+  font-weight: 600;
+  cursor: pointer;
 }
+
+button:focus {
+  outline: 0;
+}
+
 #reset {
-  background-color: #f00;
-  padding: 18px 36px;
+  background-color: #fff;
+  padding: 14px 36px;
   margin-top: 25px;
   margin-bottom: 40px;
+  border: 2px solid red;
+  transition: 0.2s;
+}
+
+#reset:hover {
+  background-color: #f00;
+  color: #fff;
+  box-shadow: 3px 8px 10px #666
+}
+
+#reset span {
+  display: inline-block;
+  position: relative;
+}
+
+#reset span:after {
+  content: '!';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -4px;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+  transition: right .15s ease-in-out;
+  -moz-transition: right .15s ease-in-out;
+  -webkit-transition: right .15s ease-in-out;
+
+}
+
+#reset:hover span {
+  padding-right: 7px;
+}
+
+#reset:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#reset:active {
+  background-color: #f00;
+  color: #fff;
+  box-shadow: 3px 4px 10px #666;
+  transform: translateY(4px);
 }
 
 .board {
@@ -43,6 +98,7 @@
   border-radius: 10px;
   background-color: #fff;
   margin: 20px;
+  cursor: pointer;
 }
 
 .back {
