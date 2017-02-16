@@ -98,7 +98,7 @@ button:focus {
   border-radius: 10px;
   background-color: #fff;
   margin: 20px;
-  cursor: pointer;
+  transition: 0.2s;
 }
 
 .card span {
@@ -106,6 +106,11 @@ button:focus {
   display: block;
   margin: 3px;
   text-transform: capitalize;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 span.visible {
@@ -120,13 +125,22 @@ span.visible {
 
 .back {
   background-image: url('../img/back.png');
+  cursor: pointer;
 }
 
-.queen-red, .king-red {
+.card:hover {
+  box-shadow: 2px 3px 10px #999;
+}
+
+.back:hover, .back:active {
+  box-shadow: 3px 4px 10px #666;
+}
+
+[class$="red"] {
   color: #DA0003;
 }
 
-.queen-black, .king-black {
+[class$="black"] {
   color: #000;
 }
 
