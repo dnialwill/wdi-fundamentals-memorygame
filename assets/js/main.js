@@ -3,6 +3,7 @@ var cardsInPlay; // Declare var cards in play
 var board = document.querySelector("#game-board"); // Declares game-board
 var status = document.querySelector("#status"); // Declares status message, should work but it doesn't???
 var reset = document.querySelector("#reset"); // Declares reset button
+var score = 0
 
 function createCards() { // Card creation
   cardsInPlay = []; // Initialize playing field
@@ -51,6 +52,8 @@ function isMatch() { // Does it match?????????????????????????
   var cardList = board.childNodes; // Makes a nodelist, dunno if I can do this in createCards()
   if (cardsInPlay[0] === cardsInPlay[1]) { // Compares face value of played cards
     document.querySelector("#status").innerHTML = "You found a match!"; // Yay
+    score++;
+    document.querySelector("#score").innerHTML = `${score}`
   } else {
     document.querySelector("#status").innerHTML = "Sorry, try again."; // Boo
   } for (var i=0; i<cardList.length; i++) { // Only two cards can be played, cheater

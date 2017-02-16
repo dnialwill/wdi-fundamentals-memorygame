@@ -8,11 +8,21 @@
   margin-bottom: 25px;
 }
 
-.status-bar p{
+
+.status-bar p {
   text-align: center;
   color: #fff;
 }
 
+#score-field p {
+  text-align: center;
+  font-weight: 800;
+  margin: 10 auto;
+}
+
+.status-bar p, #score-field p {
+  font-size: 20px;
+}
 #reset {
   background-color: #f00;
   padding: 18px 36px;
