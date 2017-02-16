@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-.status-bar p, #score-field p{
+.status-bar p, #score-field p {
   font-weight: 800;
 }
 
@@ -36,6 +36,7 @@ button:focus {
 
 #reset {
   background-color: #fff;
+  width: 128px;
   padding: 14px 36px;
   margin-top: 25px;
   margin-bottom: 40px;
@@ -52,30 +53,71 @@ button:focus {
 #reset span {
   display: inline-block;
   position: relative;
+  right: 0px;
+  transition: right .6s ease-in-out;
+  -moz-transition: right .6s ease-in-out;
+  -webkit-transition: right .6s ease-in-out;
 }
 
 #reset span:after {
   content: '!';
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 200px;
+  padding: 0 13;
+  font-size: 30px;
   position: absolute;
   opacity: 0;
-  top: 0;
-  right: -4px;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-  transition: right .15s ease-in-out;
-  -moz-transition: right .15s ease-in-out;
-  -webkit-transition: right .15s ease-in-out;
-
+  top: -7px;
+  right: 6px;
+  transition: right .4s ease-in-out;
+  -moz-transition: right .4s ease-in-out;
+  -webkit-transition: right .4s ease-in-out;
 }
 
 #reset:hover span {
-  padding-right: 7px;
+  padding-right: 48px;
+  right: 24px;
 }
 
 #reset:hover span:after {
+  -webkit-animation: fadeinicon .6s;
+  -moz-animation: fadeinicon .6s;
+  -ms-animation: fadeinicon .6s;
+  -o-animation: fadeinicon .6s;
+  animation: fadeinicon .6s;
   opacity: 1;
   right: 0;
+}
+
+@keyframes fadeinicon {
+  0% { opacity: 0; }
+  35% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeinicon {
+  0% { opacity: 0; }
+  35% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeinicon {
+  0% { opacity: 0; }
+  35% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeinicon {
+  0% { opacity: 0; }
+  35% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+  0% { opacity: 0; }
+  35% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 #reset:active {
@@ -115,6 +157,11 @@ button:focus {
 
 span.visible {
   visibility: visible;
+  -webkit-animation: fadein .7s;
+  -moz-animation: fadein .7s;
+  -ms-animation: fadein .7s;
+  -o-animation: fadein .7s;
+  animation: fadein .7s;
 }
 
 .rotate {
@@ -126,6 +173,36 @@ span.visible {
 .back {
   background-image: url('../img/back.png');
   cursor: pointer;
+  -webkit-animation: fadein 1.25s;
+  -moz-animation: fadein 1.25s;
+  -ms-animation: fadein 1.25s;
+  -o-animation: fadein 1.25s;
+  animation: fadein 1.25s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .card:hover {
