@@ -64,6 +64,7 @@ function isMatch() { // Does it match?????????????????????????
     document.querySelector("#status").innerHTML = "Sorry, try again."; // Boo
   } for (var i=0; i<cardList.length; i++) { // Only two cards can be played, cheater
     cardList[i].removeEventListener("click", isTwoCards);
+    cardList[i].classList.add("deselect");
   }
 }
 

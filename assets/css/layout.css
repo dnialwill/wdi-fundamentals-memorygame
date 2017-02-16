@@ -1,5 +1,6 @@
 html {
   margin: 16 0;
+  text-align: center;
 }
 
 nav, .info, footer p{
@@ -16,7 +17,7 @@ nav, .info, footer p{
 }
 
 nav {
-  margin: 0px 5px;
+  margin: 0px 16px;
 }
 
 nav a {
